@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Biblioteca</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOME</th>
+          <th>QUANTIDADE</th>
+          <th>DATA</th>
+        </tr>
+      </thead>
+      <tbody id="tablebody"></tbody>
+    </table>
+
+    <div class="del-div">
+      <input
+        name="campo"
+        type="text"
+        id="campo"
+        value=""
+        maxlength="9"
+        required
+      />
+      <a href="#" class="link-edit" onclick="edit_book(campo.value);"
+        >Editar livro</a
+      >
+      <a href="#" class="link-del" onclick="delete_book(campo.value);"
+        >Deletar livro</a
+      >
+
+      <button onclick="cadastre_book()">Cadastrar Livro</button>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
