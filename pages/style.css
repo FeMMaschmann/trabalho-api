@@ -110,6 +110,12 @@
     background-color: #ff782e;
     cursor: pointer;
 }
+.buttonBook:nth-child(2) {
+    background-color: #0a2200;
+}
+.buttonBook:nth-child(4) {
+    background-color: #ff7f7f;
+}
 #editaBook, #cadastraBook, #deletaBook {
     display: none;
 }
