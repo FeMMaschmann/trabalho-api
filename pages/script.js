@@ -28,14 +28,15 @@ function request_get() {
 
   request.onload = function () {
     let data = JSON.parse(this.response);
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
 
     data = data.data;
     data.forEach((book) => {
       print_table(
         book.book_id,
         book.book_name,
-        book.quantity,
-        book.date_aquisiton
+        book.quantity,        
+        new Date(book.date_aquisiton).toLocaleDateString("pt-br", options)
       );
     });
   };
