@@ -1,5 +1,26 @@
+// DIV TABELA HTML
 const tablebody = document.getElementById("tablebody");
 
+// ERRO
+// function error(param) {
+//   if (request.readyState == 4 && request.status == "201") {
+//     console.table(param);
+//   } else {
+//     console.error(param);
+//   }
+// }
+
+// PRINTAR TABELA
+function print_table(id, name, qtd, dt) {
+  tablebody.innerHTML += `<tr>
+    <td>${id}</td>
+    <td>${name}</td>
+    <td>${qtd}</td>
+    <td>${dt}</td>
+  </tr>`;
+}
+
+// GET
 function request_get() {
   let request = new XMLHttpRequest();
 
@@ -20,6 +41,18 @@ function request_get() {
   };
   request.send();
 }
+
+// DELETE
+function request_delete(id) {
+  let request = new XMLHttpRequest();
+
+  request.open("DELETE", "http://localhost:3000/books/" + id, true);
+
+  request.send();
+}
+
+
+// CONFIRMA DELETE
 function delete_book(book_id) {
   let r = window.confirm("Tem certeza que deseja deletar o livro?");
   if (r == true) {
@@ -27,16 +60,7 @@ function delete_book(book_id) {
   }
 }
 
-function edit_book(book_id) {
-  let name = prompt("Digite um novo nome para o livro: ");
-  let qtd = prompt("Digite uma nova quantidade para o livro: ");
-  let dt = prompt("Digite uma nova data de aquisição para o livro: ");
-  if (name != "" && qtd != "" && dt != "") {
-    request_edit(book_id, name, qtd, dt);
-  } else {
-    alert("você deixou campos em branco");
-  }
-}
+// DIGITA PARA CADASTRAR
 function cadastre_book() {
   let name = prompt("Digite um nome para o livro: ");
   let qtd = prompt("Digite uma quantidade para o livro: ");
@@ -48,23 +72,7 @@ function cadastre_book() {
   }
 }
 
-function print_table(id, name, qtd, dt) {
-  tablebody.innerHTML += `<tr>
-    <td>${id}</td>
-    <td>${name}</td>
-    <td>${qtd}</td>
-    <td>${dt}</td>
-  </tr>`;
-}
-
-function request_delete(id) {
-  let request = new XMLHttpRequest();
-
-  request.open("DELETE", "http://localhost:3000/books/" + id, true);
-
-  request.send();
-}
-
+// CADASTRA
 function request_post(name, qtd, dt) {
   let data = JSON.stringify({
     book_name: name,
@@ -87,6 +95,17 @@ function request_post(name, qtd, dt) {
   request.send(data);
 }
 
+
+// DIGITA PARA EDITAR
+function edit_book(idBook, nameBook, qtdBook, dataBook) {
+  if (nameBook != "" && qtdBook != "" && dataBook != "") {
+    request_edit(idBook, nameBook, qtdBook, dataBook);
+  } else {
+    alert("você deixou campos em branco");
+  }
+}
+
+// EDITA
 function request_edit(id, name, qtd, dt) {
   let data = JSON.stringify({
     book_name: name,
@@ -100,7 +119,7 @@ function request_edit(id, name, qtd, dt) {
   request.setRequestHeader("Content-type", "application/json; charset=utf-8");
   request.onload = function () {
     let books = JSON.parse(request.responseText);
-    if (request.readyState == 4 && request.status == "200") {
+    if (request.readyState == 4 && request.status == "201") {
       console.table(books);
     } else {
       console.error(books);
@@ -110,3 +129,4 @@ function request_edit(id, name, qtd, dt) {
 }
 
 request_get();
+

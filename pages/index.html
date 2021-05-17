@@ -7,40 +7,47 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Biblioteca</title>
   </head>
+
   <body>
-    <div id="container"></div>
+    <div class="custom-shape-divider-top-1621217092">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+      </svg>
+    </div>
+    <div id="container">
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>QUANTIDADE</th>
+            <th>DATA</th>
+          </tr>
+        </thead>
+        <tbody id="tablebody"></tbody>
+      </table>
 
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>NOME</th>
-          <th>QUANTIDADE</th>
-          <th>DATA</th>
-        </tr>
-      </thead>
-      <tbody id="tablebody"></tbody>
-    </table>
-
-    <div class="del-div">
-      <input
-        name="campo"
-        type="text"
-        id="campo"
-        value=""
-        maxlength="9"
-        required
-      />
-      <a href="#" class="link-edit" onclick="edit_book(campo.value);"
-        >Editar livro</a
-      >
-      <a href="#" class="link-del" onclick="delete_book(campo.value);"
-        >Deletar livro</a
-      >
-
-      <button onclick="cadastre_book()">Cadastrar Livro</button>
+      <div class="buttons">        
+        <button id="edita">
+          Editar livro
+        </button>
+        <div id="editaBook" class="hidden">
+          <input placeholder="ID" id="idBook" type="text" value="" maxlength="9" required />                  
+          <input placeholder="Nome" id="nameBook" type="text" value="" maxlength="50" required />                  
+          <input placeholder="Quantidade" id="qtdBook" type="number" value="" maxlength="9" required />                  
+          <input placeholder="Data" id="dataBook" type="date" value="" maxlength="9" required />                  
+          <button onclick="edit_book(idBook.value, nameBook.value, qtdBook.value, dataBook.value);">Editar</button>
+        </div>
+        <button class="link-del" onclick="delete_book(idBook.value, nameBook.value, qtdBook.value, dataBook.value);">
+          Deletar livro
+        </button>
+        <button onclick="cadastre_book()">
+          Cadastrar Livro
+        </button>
+      </div>
     </div>
 
     <script src="./script.js"></script>
+    <script src="./scriptModal.js"></script>
   </body>
 </html>

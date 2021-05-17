@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* SVG */
+.custom-shape-divider-top-1621217092 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: -5;
+}
+
+.custom-shape-divider-top-1621217092 svg {
+    position: relative;
+    display: block;
+    width: calc(113% + 1.3px);
+    height: 500px;
+}
+
+.custom-shape-divider-top-1621217092 .shape-fill {
+    fill: #CC5D5D;
+}
+/* FIM SVG */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tabela {
+    /* display: none; */
+    height: auto;
+    width: 50%;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 40px 0px;
+    text-transform: capitalize;
+    background-color: rgba(255, 255, 255, .8);
+}
+.tabela th, .tabela td {
+    border: 2px solid black;
+}
+.tabela th {
+    padding: 15px;
+}
+.tabela td {
+    padding: 20px;
+    font-size: 20px;
+}
+.buttons {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.buttons input {
+    width: 10%;
+    padding: 2px;
+    font-size: 18px;
+}
+.buttons input:focus {
+    outline: none;
+}
+.buttons button {
+    border: none;
+    font-size: 18px;
+    width: 29%;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+.buttons button:nth-child(2) {
+    background-color: transparent;
+    border: 1px solid #ff782e;
+    transition: background-color, color, ease-out .2s;
+}
+.buttons button:nth-child(2):hover {
+    background-color: #ff782e;
+    color: #fff;
+}   
+.buttons button:nth-child(3) {
+    background-color: transparent;
+    border: 1px solid #0a2200;
+    transition: background-color, color, ease-out .2s;
+}
+.buttons button:nth-child(3):hover {
+    background-color: #0a2200;
+    color: #fff;
+}    
+.buttons button:nth-child(4) {
+    background-color: transparent;
+    border: 1px solid #ff7f7f;
+    transition: background-color, color, ease-out .2s;
+}
+.buttons button:nth-child(4):hover {
+    background-color: #ff7f7f;
+    color: #fff;
+} 
+
+#editaBook {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+#editaBook input {
+    width: 100%;
+}
