@@ -65,51 +65,61 @@
 .buttons input:focus {
     outline: none;
 }
-.buttons button {
+.buttons a {
     border: none;
     font-size: 18px;
     width: 29%;
     padding: 5px 15px;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
 }
-.buttons button:nth-child(2) {
+.buttons a:nth-child(2) {
     background-color: transparent;
     border: 1px solid #ff782e;
     transition: background-color, color, ease-out .2s;
 }
-.buttons button:nth-child(2):hover {
+.buttons a:nth-child(2):hover {
     background-color: #ff782e;
     color: #fff;
 }   
-.buttons button:nth-child(3) {
+.buttons a:nth-child(3) {
     background-color: transparent;
     border: 1px solid #0a2200;
     transition: background-color, color, ease-out .2s;
 }
-.buttons button:nth-child(3):hover {
+.buttons a:nth-child(3):hover {
     background-color: #0a2200;
     color: #fff;
 }    
-.buttons button:nth-child(4) {
+.buttons a:nth-child(1) {
     background-color: transparent;
     border: 1px solid #ff7f7f;
     transition: background-color, color, ease-out .2s;
 }
-.buttons button:nth-child(4):hover {
+.buttons a:nth-child(1):hover {
     background-color: #ff7f7f;
     color: #fff;
 } 
-
-#editaBook {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    visibility: hidden;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
+/* modais */
+.buttonBook {
+    padding: 10px 40px;
+    color: #fff;
+    font-size: 20px;
+    background-color: #ff782e;
+    cursor: pointer;
 }
-#editaBook input {
+#editaBook, #cadastraBook, #deletaBook {
+    display: none;
+}
+.inputBook {
     width: 100%;
+    padding: 15px;
+    margin-bottom: 5px;
+    font-size: 20px;
 }
+.inputBookMargin {
+    margin-bottom: 20px;
+}
+

@@ -55,6 +55,7 @@ function request_delete(id) {
 
 // CONFIRMA DELETE
 function delete_book(book_id) {
+  console.log(book_id)
   let r = window.confirm("Tem certeza que deseja deletar o livro?");
   if (r == true) {
     request_delete(book_id);
@@ -62,12 +63,10 @@ function delete_book(book_id) {
 }
 
 // DIGITA PARA CADASTRAR
-function cadastre_book() {
-  let name = prompt("Digite um nome para o livro: ");
-  let qtd = prompt("Digite uma quantidade para o livro: ");
-  let dt = prompt("Digite uma data de aquisição para o livro: ");
-  if (name != "" && qtd != "" && dt != "") {
-    request_post(name, qtd, dt);
+function cadastre_book(nameBook, qtdBook, dataBook) {
+  let date = new Date(dataBook);
+  if (nameBook != "" && qtdBook != "" && dataBook != "") {
+    request_post(nameBook, qtdBook, date);
   } else {
     alert("você deixou campos em branco");
   }
@@ -99,8 +98,10 @@ function request_post(name, qtd, dt) {
 
 // DIGITA PARA EDITAR
 function edit_book(idBook, nameBook, qtdBook, dataBook) {
+  let date = new Date(dataBook);
+  console.log(date)
   if (nameBook != "" && qtdBook != "" && dataBook != "") {
-    request_edit(idBook, nameBook, qtdBook, dataBook);
+    request_edit(idBook, nameBook, qtdBook, date);
   } else {
     alert("você deixou campos em branco");
   }
