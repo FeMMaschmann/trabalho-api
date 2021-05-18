@@ -20,27 +20,36 @@ function print_table(id, name, qtd, dt) {
   </tr>`;
 }
 
+// const response =  await fetch('http://localhost:3000/books)
+// const data = await response.json()
+// 21h18
+// e trocar o teu function request_get() por
+// 21h18
+// async function request_get()
 // GET
-function request_get() {
-  let request = new XMLHttpRequest();
+async function request_get() {
+  const response = await fetch('http://localhost:3000/books');  
+  const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+  let data = await response.json()
 
-  request.open("GET", "http://localhost:3000/books", true);
+  data = data.data;
+  data.forEach((book) => {
+    print_table(
+      book.book_id,
+      book.book_name,
+      book.quantity,        
+      new Date(book.date_aquisiton).toLocaleDateString("pt-br", options)
+    );
+  });
+}
 
-  request.onload = function () {
-    let data = JSON.parse(this.response);
-    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-
-    data = data.data;
-    data.forEach((book) => {
-      print_table(
-        book.book_id,
-        book.book_name,
-        book.quantity,        
-        new Date(book.date_aquisiton).toLocaleDateString("pt-br", options)
-      );
-    });
-  };
-  request.send();
+// CONFIRMA DELETE
+function delete_book(book_id) {
+  console.log(book_id)
+  let r = window.confirm("Tem certeza que deseja deletar o livro?");
+  if (r == true) {
+    request_delete(book_id);
+  }
 }
 
 // DELETE
@@ -52,15 +61,6 @@ function request_delete(id) {
   request.send();
 }
 
-
-// CONFIRMA DELETE
-function delete_book(book_id) {
-  console.log(book_id)
-  let r = window.confirm("Tem certeza que deseja deletar o livro?");
-  if (r == true) {
-    request_delete(book_id);
-  }
-}
 
 // DIGITA PARA CADASTRAR
 function cadastre_book(nameBook, qtdBook, dataBook) {
