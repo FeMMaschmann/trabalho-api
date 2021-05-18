@@ -23,7 +23,7 @@
 }
 
 .custom-shape-divider-top-1621217092 .shape-fill {
-  fill: #cc5d5d;
+  fill: #000;
 }
 /* FIM SVG */
 #container {
@@ -74,33 +74,33 @@
   cursor: pointer;
   text-decoration: none;
   text-align: center;
-  color: #000;
+  color: #fff;
 }
 .buttons a:nth-child(2) {
-  background-color: transparent;
+  background-color: #ff782e;
   border: 1px solid #ff782e;
   transition: background-color, color, ease-out 0.2s;
 }
 .buttons a:nth-child(2):hover {
-  background-color: #ff782e;
+  background-color: transparent;
   color: #fff;
 }
 .buttons a:nth-child(3) {
-  background-color: transparent;
+  background-color: #0a2200;
   border: 1px solid #0a2200;
   transition: background-color, color, ease-out 0.2s;
 }
 .buttons a:nth-child(3):hover {
-  background-color: #0a2200;
-  color: #fff;
+  background-color: transparent;
+  color: #000;
 }
 .buttons a:nth-child(1) {
-  background-color: transparent;
+  background-color: #ff7f7f;
   border: 1px solid #ff7f7f;
   transition: background-color, color, ease-out 0.2s;
 }
 .buttons a:nth-child(1):hover {
-  background-color: #ff7f7f;
+  background-color: transparent;
   color: #fff;
 }
 /* modais */

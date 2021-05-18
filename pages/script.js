@@ -54,6 +54,7 @@ function delete_book(book_id) {
   let r = window.confirm("Tem certeza que deseja deletar o livro?");
   if (r == true) {
     request_delete(book_id);
+    document.location.reload(true);
   }
 }
 
@@ -72,7 +73,7 @@ async function cadastre_book(nameBook, qtdBook, dataBook) {
   let date = new Date(dataBook);
   if (nameBook != "" && qtdBook != "" && dataBook != "") {    
     const id = await request_post(nameBook, qtdBook, date);
-    document.location.reload(true)    
+    document.location.reload(true);    
   } else {
     alert("você deixou campos em branco");
   }
@@ -108,7 +109,8 @@ function edit_book(idBook, nameBook, qtdBook, dataBook) {
   let date = new Date(dataBook);
   console.log(date)
   if (nameBook != "" && qtdBook != "" && dataBook != "") {
-    request_edit(idBook, nameBook, qtdBook, date);    
+    request_edit(idBook, nameBook, qtdBook, date);
+    document.location.reload(true);    
   } else {
     alert("você deixou campos em branco");
   }
