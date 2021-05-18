@@ -28,7 +28,7 @@ async function create(book) {
     message = "Deu bom criando o book";
   }
 
-  return { message };
+  return { message, id : result.insertId };
 }
 
 async function update(id, book) {

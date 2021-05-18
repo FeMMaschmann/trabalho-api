@@ -1,5 +1,6 @@
 // DIV TABELA HTML
 const tablebody = document.getElementById("tablebody");
+let books;
 
 // ERRO
 // function error(param) {
@@ -12,28 +13,32 @@ const tablebody = document.getElementById("tablebody");
 
 // PRINTAR TABELA
 function print_table(id, name, qtd, dt) {
-  tablebody.innerHTML += `<tr>
-    <td>${id}</td>
-    <td>${name}</td>
-    <td>${qtd}</td>
-    <td>${dt}</td>
-  </tr>`;
+  const row = tablebody.insertRow();
+  const cellId = row.insertCell(0);
+  const cellName = row.insertCell(1);
+  const cellQtd = row.insertCell(2);
+  const cellDt = row.insertCell(3);
+  cellId.innerHTML = id;
+  cellName.innerHTML = name
+  cellQtd.innerHTML = qtd
+  cellDt.innerHTML = dt
 }
 
-// const response =  await fetch('http://localhost:3000/books)
-// const data = await response.json()
-// 21h18
-// e trocar o teu function request_get() por
-// 21h18
-// async function request_get()
+
 // GET
 async function request_get() {
   const response = await fetch('http://localhost:3000/books');  
-  const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-  let data = await response.json()
+  
+  const { data }  = await response.json();
+  return data;
+}
 
-  data = data.data;
-  data.forEach((book) => {
+// ORGANIZANDO OS DADOS
+async function monta_tabela() {
+  books = await request_get();  
+  const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+  
+  books.forEach((book) => {
     print_table(
       book.book_id,
       book.book_name,
@@ -63,10 +68,11 @@ function request_delete(id) {
 
 
 // DIGITA PARA CADASTRAR
-function cadastre_book(nameBook, qtdBook, dataBook) {
+async function cadastre_book(nameBook, qtdBook, dataBook) {
   let date = new Date(dataBook);
-  if (nameBook != "" && qtdBook != "" && dataBook != "") {
-    request_post(nameBook, qtdBook, date);
+  if (nameBook != "" && qtdBook != "" && dataBook != "") {    
+    const id = await request_post(nameBook, qtdBook, date);
+    document.location.reload(true)    
   } else {
     alert("você deixou campos em branco");
   }
@@ -85,13 +91,14 @@ function request_post(name, qtd, dt) {
 
   request.setRequestHeader("Content-type", "application/json; charset=utf-8");
   request.onload = function () {
-    var users = JSON.parse(request.responseText);
+    let users = JSON.parse(request.responseText);
+
     if (request.readyState == 4 && request.status == "201") {
       console.table(users);
     } else {
       console.error(users);
     }
-  };
+  };  
   request.send(data);
 }
 
@@ -101,7 +108,7 @@ function edit_book(idBook, nameBook, qtdBook, dataBook) {
   let date = new Date(dataBook);
   console.log(date)
   if (nameBook != "" && qtdBook != "" && dataBook != "") {
-    request_edit(idBook, nameBook, qtdBook, date);
+    request_edit(idBook, nameBook, qtdBook, date);    
   } else {
     alert("você deixou campos em branco");
   }
@@ -130,5 +137,5 @@ function request_edit(id, name, qtd, dt) {
   request.send(data);
 }
 
-request_get();
+monta_tabela();
 
