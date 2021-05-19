@@ -39,14 +39,14 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`book_id`, `book_name`, `quantity`, `date_aquisiton`) VALUES
-(1, 'JavaScript', 19, '2021-05-09'),
-(2, 'Python', 91, '2021-05-09'),
-(3, 'Java', 15, '2021-05-09'),
-(4, 'TypeScript', 45, '2021-05-09'),
-(5, 'Csharp', 200, '2021-05-09'),
-(6, 'Harrypotter', 12, '0000-00-00'),
-(7, 'Harrypotter', 12, '0000-00-00'),
-(8, 'xesque', 12, '2020-12-20');
+(1, 'Harry Potter', 19, '2000-05-06'),
+(2, 'Nevernight', 91, '2021-03-09'),
+(3, 'O nome do vento', 15, '2019-02-09'),
+(4, 'O temor do sábio', 45, '2019-04-15'),
+(5, 'Legados de Lorien', 200, '2016-08-19'),
+(6, 'Senhor dos anéis', 312, '2010-12-21'),
+(7, 'Hobbit', 82, '2008-09-14'),
+(8, 'Coração de aço', 69, '2021-01-20');
 
 --
 -- Índices para tabelas despejadas
